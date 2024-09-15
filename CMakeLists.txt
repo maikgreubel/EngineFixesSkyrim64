@@ -39,6 +39,8 @@ add_compile_definitions(
 add_subdirectory(external/CommonLibSSE CommonLibSSE)
 
 find_package(AutoTOML REQUIRED CONFIG)
+
+set(Boost_DEBUG ON)
 find_package(Boost
 	MODULE
 	REQUIRED
