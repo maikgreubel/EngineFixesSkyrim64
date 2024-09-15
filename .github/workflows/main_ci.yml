@@ -41,7 +41,6 @@ jobs:
           cd $env:VCPKG_INSTALLATION_ROOT
           ./bootstrap-vcpkg.bat
           ./vcpkg --version > ${{ github.workspace }}/vcpkg-version.txt
-          tree ${{ github.workspace }}
 
       - name: Cache vcpkg
         uses: actions/cache@v2
@@ -54,6 +53,10 @@ jobs:
 
       - name: Configure CMake
         run: cmake --preset vs2022-windows-vcpkg -DCOPY_BUILD=OFF
+
+      - name: Show build tree
+        if: always()
+        run: tree ${{ github.workspace }}
 
       - name: Build
         run: |
