@@ -56,7 +56,7 @@ jobs:
 
       - name: Show build tree
         if: always()
-        run: tree ${{ github.workspace }}
+        run: tree /f ${{ github.workspace }}
 
       - name: Build
         run: |
